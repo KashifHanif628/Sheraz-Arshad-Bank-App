@@ -74,7 +74,7 @@ export interface Bank {
     },
     {
       id: 8,
-      name: "Habib Bank Limited",
+      name: "Habib Bank Limited-HBL Tower",
       accountTitle: "Sheraz Arshad / Faiza Sheraz",
       accountNumber: "25257001527103",
       iban: "PK16-HABB-0025-2570-0152-7103",
@@ -83,7 +83,7 @@ export interface Bank {
     },
     {
       id: 9,
-      name: "Habib Bank Limited",
+      name: "Habib Bank Limited-Badar Commercial",
       accountTitle: "Sheraz Arshad / Faiza Sheraz",
       accountNumber: "11557948465803",
       iban: "PK56-HABB-0011-5579-4846-5803",
