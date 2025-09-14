@@ -1,79 +1,60 @@
 @import "tailwindcss";
 
-/* 🎨 Light/Dark theme variables */
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+/* ---------- Typewriter (bank names) ---------- */
+@keyframes typing { from { width: 0 } to { width: 100% } }
+@keyframes blink { 50% { border-color: transparent } }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-/* 🌍 Base styles */
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
-  @apply antialiased transition-colors duration-300;
-}
-
-/* ✨ Smooth scrolling for better UX */
-html {
-  scroll-behavior: smooth;
-}
-
-/* 🔥 Typewriter Effect */
-@keyframes typing {
-  from { width: 0 }
-  to { width: 100% }
-}
-
-@keyframes blink {
-  50% { border-color: transparent }
-}
-
+/* Typewriter fix - reserve space */
 .typewriter {
   display: inline-block;
   overflow: hidden;
-  border-right: 2px solid currentColor; /* Cursor color inherits text */
-  white-space: nowrap;
-  animation:
-    typing 2s steps(30, end) forwards,
-    blink 0.75s step-end infinite;
+  white-space: normal;
+  border-right: 2px solid currentColor;
+  box-sizing: content-box;
+  animation: typing 3s steps(30, end) forwards, blink 0.8s step-end infinite;
+  max-width: 100%;
+
+  /* Ye line add karo - ek fixed height reserve hogi */
+  min-height: 1.5em; 
 }
 
-/* 🌈 Unique Neon Animated Gradient Background */
-.animated-bg {
-  background: linear-gradient(135deg, #0f0c29, #302b63, #24243e, #ff6a00, #ee0979);
-  background-size: 600% 600%;
-  animation: gradientShift 18s ease infinite;
+/* Background fix */
+.bg-fixed-cover {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed; /* Image lock ho jayegi */
 }
 
-@keyframes gradientShift {
-  0% {
-    background-position: 0% 50%;
-  }
-  25% {
-    background-position: 100% 50%;
-  }
-  50% {
-    background-position: 100% 100%;
-  }
-  75% {
-    background-position: 0% 100%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
+
+
+/* ---------- Rainbow blinking heading ---------- */
+.rainbow-blink {
+  background: linear-gradient(90deg, #F59E0B, #F97316, #EF4444, #D946EF, #3B82F6);
+  background-size: 500% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: rainbowShift 3s linear infinite;
+  font-weight: 800;
+}
+
+@keyframes rainbowShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Toast style */
+.fixed.top-6.right-6 { z-index: 50; }
+
+/* Utility tweaks */
+html, body, #__next { height: 100%; }
+.scale-102:hover { transform: scale(1.02); }
+button:focus { outline: 2px solid rgba(99,102,241,0.25); outline-offset: 2px; }
+
+/* Small responsive adjustments */
+@media (max-width: 640px) {
+  .typewriter { font-size: 0.95rem; animation-duration: 850ms; }
+  .backdrop-blur-md { backdrop-filter: blur(6px); }
 }
