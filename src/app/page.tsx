@@ -26,7 +26,7 @@ export default function Home() {
             <span className="text-3xl md:text-4xl" aria-hidden style={{ color: "#F59E0B" }}>🏦</span>
             <span className="rainbow-blink">SHERAZ ARSHAD BANK ACCOUNTS</span>
           </h1>
-          <p className="text-sm md:text-base text-gray-600 mt-2">
+          <p className="text-sm md:text-base text-white mt-2">
             Trusted accounts — tap a bank name to view details and copy.
           </p>
         </header>
