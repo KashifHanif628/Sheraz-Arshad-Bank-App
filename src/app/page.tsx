@@ -35,7 +35,7 @@ export default function Home() {
           <BankList showToast={showToast} />
         </section>
 
-        <footer className="mt-8 text-center text-xs text-gray-500">
+        <footer className="mt-8 text-center text-xs text-white">
           © {new Date().getFullYear()} Sheraz Arshad — All rights reserved.
         </footer>
       </div>
